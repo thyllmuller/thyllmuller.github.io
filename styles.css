@@ -187,6 +187,11 @@ h2 {
   margin-top: 1rem;
 }
 
+.role-card.featured-project {
+  border-color: rgba(130, 197, 255, 0.35);
+  background: linear-gradient(135deg, rgba(130, 197, 255, 0.08), rgba(130, 197, 255, 0.02));
+}
+
 .role-header {
   display: flex;
   justify-content: space-between;
