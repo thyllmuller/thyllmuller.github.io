@@ -472,7 +472,7 @@ h2 {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -495,6 +495,13 @@ h2 {
   font-size: 2rem;
   letter-spacing: -0.03em;
   color: var(--accent);
+}
+
+.stat-card .contribution-title {
+  font-size: 1.08rem;
+  letter-spacing: 0;
+  line-height: 1.25;
+  color: var(--text);
 }
 
 .stat-card span {
@@ -578,7 +585,7 @@ h2 {
 
 @media (max-width: 1050px) {
   .stats-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
