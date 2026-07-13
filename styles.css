@@ -1,12 +1,15 @@
 :root {
-  --bg: #f6f3ee;
-  --surface: #fcfbf8;
-  --surface-strong: #f0e8de;
-  --text: #171615;
-  --muted: #625d57;
-  --accent: #2f4f4f;
-  --border: rgba(23, 22, 21, 0.12);
-  --shadow: 0 20px 60px rgba(23, 22, 21, 0.06);
+  color-scheme: dark;
+  --bg: #06070b;
+  --bg-accent: #0d1118;
+  --surface: rgba(17, 21, 29, 0.92);
+  --surface-strong: #161b24;
+  --text: #f5f2eb;
+  --muted: #9da4b0;
+  --accent: #82c5ff;
+  --accent-strong: #5ab3ff;
+  --border: rgba(255, 255, 255, 0.09);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 
 * {
@@ -20,9 +23,17 @@ html {
 body {
   margin: 0;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: var(--bg);
+  background:
+    radial-gradient(circle at top left, rgba(130, 197, 255, 0.15), transparent 30%),
+    linear-gradient(135deg, var(--bg) 0%, var(--bg-accent) 100%);
   color: var(--text);
   line-height: 1.6;
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(130, 197, 255, 0.3);
+  color: white;
 }
 
 img {
@@ -43,15 +54,17 @@ a {
   align-items: center;
   padding: 1rem 2rem;
   backdrop-filter: blur(16px);
-  background: rgba(246, 243, 238, 0.86);
+  background: rgba(6, 7, 11, 0.76);
   border-bottom: 1px solid var(--border);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
 }
 
 .brand {
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.95rem;
+  color: var(--text);
 }
 
 .nav-links {
@@ -63,15 +76,16 @@ a {
 .nav-links a {
   color: var(--muted);
   font-size: 0.95rem;
+  transition: color 180ms ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--text);
+  color: var(--accent);
 }
 
 main {
-  width: min(1000px, calc(100% - 2rem));
+  width: min(1020px, calc(100% - 2rem));
   margin: 0 auto;
 }
 
@@ -80,14 +94,14 @@ main {
 }
 
 .hero {
-  padding-top: 5rem;
+  padding-top: 5.5rem;
   padding-bottom: 3.5rem;
 }
 
 .eyebrow {
   margin: 0 0 0.75rem;
   color: var(--accent);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -97,13 +111,13 @@ h1,
 h2,
 h3 {
   margin: 0;
-  line-height: 1.1;
+  line-height: 1.08;
 }
 
 h1 {
   font-size: clamp(2.5rem, 5vw, 4.6rem);
   max-width: 760px;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
 }
 
 h2 {
@@ -134,21 +148,24 @@ h2 {
   border-radius: 999px;
   padding: 0.8rem 1.1rem;
   border: 1px solid var(--border);
-  transition: transform 180ms ease, background 180ms ease;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
 }
 
 .button:hover {
   transform: translateY(-1px);
+  border-color: rgba(130, 197, 255, 0.4);
 }
 
 .button.primary {
-  background: var(--text);
-  color: white;
-  border-color: var(--text);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  color: #07111b;
+  border-color: transparent;
+  font-weight: 700;
 }
 
 .button.secondary {
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
 }
 
 .section-heading {
@@ -188,6 +205,7 @@ h2 {
 .role-headline {
   font-size: 1.07rem;
   margin: 0 0 1rem;
+  color: #e8e4da;
 }
 
 .role-highlights {
@@ -217,6 +235,7 @@ h2 {
 .stat-card strong {
   font-size: 2rem;
   letter-spacing: -0.03em;
+  color: var(--accent);
 }
 
 .stat-card span {
@@ -232,6 +251,7 @@ h2 {
 .skill-group h3 {
   margin-bottom: 0.6rem;
   font-size: 1rem;
+  color: #e8e4da;
 }
 
 .skill-group p {
