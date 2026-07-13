@@ -270,6 +270,26 @@ h2 {
   font-weight: 600;
 }
 
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1.3rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.hero-meta span {
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.education-card + .education-card {
+  margin-top: 1rem;
+}
+
 .footer {
   text-align: center;
   padding: 2rem 1rem 3rem;
