@@ -269,8 +269,7 @@ h2 {
   color: var(--muted);
 }
 
-.pill,
-.role-badge {
+.pill {
   display: inline-flex;
   align-items: center;
   padding: 0.35rem 0.7rem;
@@ -333,33 +332,6 @@ h2 {
 .role-meta {
   margin: 0.2rem 0 0;
   color: var(--muted);
-}
-
-.metric-row {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin: 0.85rem 0 1rem;
-}
-
-.metric-pill {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  padding: 0.8rem;
-  border-radius: 0.9rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.metric-pill strong {
-  font-size: 1.12rem;
-  color: var(--accent);
-}
-
-.metric-pill span {
-  color: var(--muted);
-  font-size: 0.9rem;
 }
 
 .education-details {
@@ -457,6 +429,13 @@ h2 {
   gap: 1rem;
   align-items: start;
   margin-bottom: 0.9rem;
+}
+
+.role-header-meta {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 0.45rem;
 }
 
 .role-title,
@@ -590,8 +569,7 @@ h2 {
 
 @media (max-width: 860px) {
   .stats-grid,
-  .skills-grid,
-  .metric-row {
+  .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -620,9 +598,12 @@ h2 {
     flex-direction: column;
   }
 
+  .role-header-meta {
+    align-items: flex-start;
+  }
+
   .stats-grid,
-  .skills-grid,
-  .metric-row {
+  .skills-grid {
     grid-template-columns: 1fr;
   }
 
