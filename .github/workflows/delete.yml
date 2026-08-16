@@ -1,0 +1,20 @@
+name: Delete GitHub Pages Deployments
+
+on:
+  workflow_dispatch:
+
+permissions:
+  deployments: write
+  contents: read
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Delete GitHub Pages deployments
+        uses: strumwolf/delete-deployment-environment@v4
+        with:
+          token: ${{ secrets.DEPLOY_TOKEN }}
+          environment: github-pages
+          onlyRemoveDeployments: true

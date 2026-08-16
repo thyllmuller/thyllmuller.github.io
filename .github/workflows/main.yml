@@ -1,0 +1,69 @@
+name: Cleanup old GitHub Pages deployments
+
+on:
+  workflow_dispatch:
+    inputs:
+      keep_latest:
+        description: Number of latest GitHub Pages deployments to keep
+        required: false
+        default: '1'
+        type: string
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete older Pages deployment records
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          KEEP_LATEST: ${{ github.event.inputs.keep_latest || '1' }}
+        run: |
+          set -euo pipefail
+
+          OWNER_REPO="${GITHUB_REPOSITORY}"
+          OWNER="${OWNER_REPO%/*}"
+          REPO="${OWNER_REPO#*/}"
+
+          echo "Listing GitHub Pages deployments for $OWNER_REPO"
+          deployments=$(curl -sS \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2026-03-10" \
+            "https://api.github.com/repos/$OWNER/$REPO/deployments?environment=github-pages&per_page=100")
+
+          count=$(echo "$deployments" | jq 'length')
+          echo "Found $count GitHub Pages deployments"
+
+          if [ "$count" -le 1 ]; then
+            echo "Nothing to delete."
+            exit 0
+          fi
+
+          keep_count=$(printf '%s' "$KEEP_LATEST" | awk '{print ($1+0)}')
+          if [ "$keep_count" -lt 1 ]; then
+            keep_count=1
+          fi
+
+          ids=$(echo "$deployments" | jq -r "sort_by(.created_at) | reverse | .[$keep_count:] | .[] | .id")
+
+          for id in $ids; do
+            [ -z "$id" ] && continue
+            echo "Marking deployment $id inactive"
+            curl -sS -X POST \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2026-03-10" \
+              "https://api.github.com/repos/$OWNER/$REPO/deployments/$id/statuses" \
+              -d '{"state":"inactive","description":"Cleaned up by workflow"}' >/dev/null || true
+
+            echo "Deleting deployment $id"
+            curl -sS -X DELETE \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2026-03-10" \
+              "https://api.github.com/repos/$OWNER/$REPO/deployments/$id" >/dev/null || true
+          done
