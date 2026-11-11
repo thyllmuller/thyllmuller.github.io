@@ -13,6 +13,7 @@
 .theme-switch button[aria-pressed="true"] { background:var(--line); color:var(--ink); }
 .identity-grid { display:grid; gap:3px; margin-top:2px; }
 .identity-grid div { display:grid; grid-template-columns:120px minmax(0,1fr); gap:8px; }
+@media (min-width:801px) { body[data-theme="code"] .identity-grid { width:calc(100% + 14px); } }
 .identity-grid dt { color:var(--blue); }
 .identity-grid dd { margin:0; color:var(--rose); }
 .heading-classic { display:none; }
