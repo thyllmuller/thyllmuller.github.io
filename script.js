@@ -2,20 +2,38 @@ const sections = document.querySelectorAll('main section[id]');
 const navLinks = document.querySelectorAll('.site-nav a');
 
 const themeButtons = document.querySelectorAll('[data-theme-choice]');
+const paletteButtons = document.querySelectorAll('[data-palette-choice]');
 const savedTheme = localStorage.getItem('cv-theme');
+const savedPalette = localStorage.getItem('cv-palette');
 const availableThemes = new Set([...themeButtons].map((button) => button.dataset.themeChoice));
+let currentTheme = 'code';
 
 const setTheme = (theme) => {
-  document.body.dataset.theme = theme;
+  currentTheme = theme;
+  const paletteMode = theme === 'palette-lab';
+  document.body.dataset.theme = paletteMode ? 'classic' : theme;
+  document.body.dataset.paletteLab = String(paletteMode);
   themeButtons.forEach((button) => {
-    button.setAttribute('aria-pressed', String(button.dataset.themeChoice === theme));
+    button.setAttribute('aria-pressed', String(button.dataset.themeChoice === currentTheme));
   });
   localStorage.setItem('cv-theme', theme);
 };
 
+const setPalette = (palette) => {
+  document.body.dataset.palette = palette;
+  paletteButtons.forEach((button) => {
+    button.setAttribute('aria-pressed', String(button.dataset.paletteChoice === palette));
+  });
+  localStorage.setItem('cv-palette', palette);
+};
+
 setTheme(availableThemes.has(savedTheme) ? savedTheme : 'code');
+setPalette([...paletteButtons].some((button) => button.dataset.paletteChoice === savedPalette) ? savedPalette : 'slate');
 themeButtons.forEach((button) => {
   button.addEventListener('click', () => setTheme(button.dataset.themeChoice));
+});
+paletteButtons.forEach((button) => {
+  button.addEventListener('click', () => setPalette(button.dataset.paletteChoice));
 });
 
 const observer = new IntersectionObserver(
