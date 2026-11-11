@@ -3,6 +3,7 @@ const navLinks = document.querySelectorAll('.site-nav a');
 
 const themeButtons = document.querySelectorAll('[data-theme-choice]');
 const savedTheme = localStorage.getItem('cv-theme');
+const availableThemes = new Set([...themeButtons].map((button) => button.dataset.themeChoice));
 
 const setTheme = (theme) => {
   document.body.dataset.theme = theme;
@@ -12,7 +13,7 @@ const setTheme = (theme) => {
   localStorage.setItem('cv-theme', theme);
 };
 
-setTheme(savedTheme === 'classic' ? 'classic' : 'code');
+setTheme(availableThemes.has(savedTheme) ? savedTheme : 'code');
 themeButtons.forEach((button) => {
   button.addEventListener('click', () => setTheme(button.dataset.themeChoice));
 });
