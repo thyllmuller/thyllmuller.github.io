@@ -24,6 +24,7 @@ body[data-theme="classic"] .heading-code { display:none; }
 body[data-theme="classic"] .heading-classic { display:inline; }
 body[data-theme="classic"] .resume-source { max-width:1080px; grid-template-columns:220px minmax(0,1fr); }
 body[data-theme="classic"] .intro h1 { margin-left:25px; }
+body[data-theme="classic"] .intro h1 { transform:translateX(-2px); }
 body[data-theme="classic"] .profile-photo { border-radius:50%; border-color:var(--line); filter:none; }
 body[data-theme="classic"] .tag, body[data-theme="classic"] .comment, body[data-theme="classic"] .brace, body[data-theme="classic"] .keyword, body[data-theme="classic"] .code-keyword, body[data-theme="classic"] .code-prefix, body[data-theme="classic"] .code-suffix, body[data-theme="classic"] .muted { display:none; }
 body[data-theme="classic"] h1 { font-size:clamp(28px,3.5vw,42px); font-weight:650; }
@@ -86,6 +87,9 @@ body[data-theme="classic"] .palette-lab { display:flex; }
 .palette-lab [data-palette-choice="plum"] i:nth-child(1) { background:#f7f1f7; }.palette-lab [data-palette-choice="plum"] i:nth-child(2) { background:#382d39; }.palette-lab [data-palette-choice="plum"] i:nth-child(3) { background:#784d70; }
 .palette-lab [data-palette-choice="midnight"] i:nth-child(1) { background:#101820; }.palette-lab [data-palette-choice="midnight"] i:nth-child(2) { background:#edf3f7; }.palette-lab [data-palette-choice="midnight"] i:nth-child(3) { background:#62b7d0; }
 .palette-lab [data-palette-choice="ember"] i:nth-child(1) { background:#1b1917; }.palette-lab [data-palette-choice="ember"] i:nth-child(2) { background:#f3eee7; }.palette-lab [data-palette-choice="ember"] i:nth-child(3) { background:#e09a66; }
+.palette-lab [data-palette-choice="midnight"] .palette-swatches, .palette-lab [data-palette-choice="ember"] .palette-swatches { padding:2px; border-radius:5px; }
+.palette-lab [data-palette-choice="midnight"] .palette-swatches { background:#101820; }
+.palette-lab [data-palette-choice="ember"] .palette-swatches { background:#1b1917; }
 body[data-theme="classic"][data-palette="midnight"] { color-scheme:dark; --ink:#edf3f7; --muted:#a6b3bd; --paper:#18232e; --paper-deep:#101820; --line:#2d3b47; --green:#7ac6a2; --teal:#62b7d0; --blue:#8db7e4; --rose:#e3a0b0; --gold:#e3c078; }
 body[data-theme="classic"][data-palette="ember"] { color-scheme:dark; --ink:#f3eee7; --muted:#b5aa9c; --paper:#24211e; --paper-deep:#1b1917; --line:#3d3832; --green:#9bc27a; --teal:#e09a66; --blue:#9db5d0; --rose:#df8d89; --gold:#e2c178; }
 body[data-theme="classic"][data-palette="midnight"] .topbar { background:rgba(16,24,32,.95); }
