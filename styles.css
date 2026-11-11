@@ -59,15 +59,17 @@ body[data-theme="tldr"] .tldr-view { display:block; }
 .tldr-view { display:none; }
 .tldr-eyebrow { margin-bottom:10px; color:var(--teal); font-size:14px; font-weight:650; }
 .tldr-eyebrow span { margin-left:8px; color:var(--muted); font-weight:400; }
+.tldr-team { margin:0 0 20px; color:var(--muted); font-size:13px; }
 .tldr-view h1 { margin:0; color:var(--ink); font-size:clamp(40px,7vw,68px); font-weight:700; letter-spacing:-.045em; }
 .tldr-summary { max-width:720px; margin:17px 0 40px; color:#46545a; font-size:clamp(18px,2.3vw,23px); line-height:1.5; }
-.tldr-highlights { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
-.tldr-highlights article { padding-top:13px; border-top:2px solid var(--teal); }
+.tldr-highlights { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.tldr-highlights article { padding:16px; border:1px solid var(--line); border-top:2px solid var(--teal); border-radius:7px; background:var(--paper); }
 .tldr-highlights h2 { margin-bottom:8px; color:var(--ink); font-size:17px; font-weight:650; }
 .tldr-highlights p { margin:0; color:#46545a; font-size:14px; }
 .tldr-skills { margin:34px 0 15px; color:var(--muted); font-size:13px; }
 .tldr-contact { display:flex; gap:18px; font-size:14px; font-weight:650; }
-@media (max-width:800px) { .tldr-highlights { grid-template-columns:1fr; gap:17px; } body[data-theme="classic"] .intro h1 { margin-left:15px; } }
+@media (max-width:800px) { body[data-theme="classic"] .intro h1 { margin-left:15px; } }
+@media (max-width:700px) { .tldr-highlights { grid-template-columns:1fr; gap:13px; } }
 @media (max-width:590px) { .theme-switch { gap:0; }.theme-switch button { padding:4px 7px; font-size:10px; } body[data-theme="tldr"] .resume-source { width:calc(100% - 36px); padding-top:45px; }.tldr-eyebrow span { display:block; margin:3px 0 0; } }
 
 body[data-theme="classic"][data-palette="warm"] { --ink:#332f2b; --muted:#77695d; --paper:#fffdf9; --paper-deep:#f7f1e8; --line:#e8ddd0; --green:#8d542e; --teal:#9b513e; --blue:#856044; --rose:#9b5146; --gold:#936521; }
