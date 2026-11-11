@@ -7,6 +7,7 @@
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; }.reveal { opacity:1; transform:none; transition:none; } } @media (max-width:800px) { .resume-source { grid-template-columns:1fr; gap:38px; padding-top:28px; }.profile-pane { display:grid; grid-template-columns:190px 1fr; gap:18px 28px; align-items:start; }.profile-pane > .tag { grid-column:1; }.profile-photo { grid-row:2 / span 2; margin:0; width:180px; }.profile-block { margin:0; }.profile-block:nth-of-type(n+3) { grid-column:span 1; }.profile-pane > .tag:nth-of-type(2) { display:none; }.intro { margin-bottom:42px; } } @media (max-width:590px) { body { font-size:14px; }.topbar { align-items:flex-start; flex-direction:column; gap:5px; padding:10px 18px; }.site-nav { gap:13px; justify-content:flex-start; }.resume-source,footer { width:min(100% - 30px,1320px); }.resume-source { padding-top:25px; }.profile-pane { display:block; }.profile-photo { width:155px; margin:6px 0; }.profile-block { margin-top:25px; }.profile-pane > .tag:nth-of-type(2) { display:block; }.indented { margin-left:15px; }.entry { padding-left:11px; }.contribution-grid { grid-template-columns:1fr; }.comment { font-size:12px; }.identity-grid p { overflow-wrap:anywhere; } }
 
 .brand-group { display:flex; align-items:center; gap:17px; }
+.wordmark-classic { display:none; }
 .theme-switch { display:flex; padding:3px; border:1px solid var(--line); border-radius:999px; }
 .theme-switch button { padding:4px 9px; border:0; border-radius:999px; background:transparent; color:var(--muted); font:inherit; font-size:11px; cursor:pointer; }
 .theme-switch button[aria-pressed="true"] { background:var(--line); color:var(--ink); }
@@ -16,6 +17,8 @@
 .identity-grid dd { margin:0; color:var(--rose); }
 body[data-theme="classic"] { color-scheme:light; --ink:#263238; --muted:#66747b; --paper:#fff; --paper-deep:#f4f7f8; --line:#dce4e7; --green:#36765a; --teal:#176b75; --blue:#426d91; --rose:#8a5265; --gold:#826219; font-family:Inter,"Segoe UI",Arial,sans-serif; }
 body[data-theme="classic"] .topbar { background:rgba(255,255,255,.95); }
+body[data-theme="classic"] .wordmark-code { display:none; }
+body[data-theme="classic"] .wordmark-classic { display:inline; }
 body[data-theme="classic"] .resume-source { max-width:1080px; grid-template-columns:220px minmax(0,1fr); }
 body[data-theme="classic"] .profile-photo { border-radius:50%; border-color:var(--line); filter:none; }
 body[data-theme="classic"] .tag, body[data-theme="classic"] .comment, body[data-theme="classic"] .brace, body[data-theme="classic"] .keyword, body[data-theme="classic"] .code-keyword, body[data-theme="classic"] .code-prefix, body[data-theme="classic"] .code-suffix, body[data-theme="classic"] .muted { display:none; }
