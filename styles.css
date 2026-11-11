@@ -63,7 +63,7 @@ body[data-theme="tldr"] .tldr-view { display:block; }
 .tldr-view h1 { margin:0; color:var(--ink); font-size:clamp(40px,7vw,68px); font-weight:700; letter-spacing:-.045em; }
 .tldr-summary { max-width:720px; margin:17px 0 40px; color:#46545a; font-size:clamp(18px,2.3vw,23px); line-height:1.5; }
 .tldr-highlights { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
-.tldr-highlights article { padding:16px; border:1px solid var(--line); border-top:2px solid var(--teal); border-radius:7px; background:var(--paper); }
+.tldr-highlights article { padding-top:13px; border-top:2px solid var(--teal); }
 .tldr-highlights h2 { margin-bottom:8px; color:var(--ink); font-size:17px; font-weight:650; }
 .tldr-highlights p { margin:0; color:#46545a; font-size:14px; }
 .tldr-skills { margin:34px 0 15px; color:var(--muted); font-size:13px; }
