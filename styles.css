@@ -105,3 +105,5 @@ body[data-theme="classic"][data-palette="midnight"] .topbar { background:rgba(16
 body[data-theme="classic"][data-palette="ember"] .topbar { background:rgba(27,25,23,.95); }
 body[data-theme="classic"][data-palette="midnight"] .entry p, body[data-theme="classic"][data-palette="midnight"] .entry li, body[data-theme="classic"][data-palette="midnight"] .contribution-grid p, body[data-theme="classic"][data-palette="midnight"] .intro-copy { color:#c7d2da; }
 body[data-theme="classic"][data-palette="ember"] .entry p, body[data-theme="classic"][data-palette="ember"] .entry li, body[data-theme="classic"][data-palette="ember"] .contribution-grid p, body[data-theme="classic"][data-palette="ember"] .intro-copy { color:#d7cec3; }
+body[data-theme="code"] .resume-source { grid-template-columns:295px minmax(0,1fr); }
+@media (max-width:800px) { body[data-theme="code"] .resume-source { grid-template-columns:1fr; } }
