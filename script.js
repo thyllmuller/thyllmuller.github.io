@@ -10,9 +10,7 @@ let currentTheme = 'code';
 
 const setTheme = (theme) => {
   currentTheme = theme;
-  const paletteMode = theme === 'palette-lab';
-  document.body.dataset.theme = paletteMode ? 'classic' : theme;
-  document.body.dataset.paletteLab = String(paletteMode);
+  document.body.dataset.theme = theme;
   themeButtons.forEach((button) => {
     button.setAttribute('aria-pressed', String(button.dataset.themeChoice === currentTheme));
   });
