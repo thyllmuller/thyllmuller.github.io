@@ -18,7 +18,7 @@ body[data-theme="classic"] { color-scheme:light; --ink:#263238; --muted:#66747b;
 body[data-theme="classic"] .topbar { background:rgba(255,255,255,.95); }
 body[data-theme="classic"] .resume-source { max-width:1080px; grid-template-columns:220px minmax(0,1fr); }
 body[data-theme="classic"] .profile-photo { border-radius:50%; border-color:var(--line); filter:none; }
-body[data-theme="classic"] .tag, body[data-theme="classic"] .code-label, body[data-theme="classic"] .comment, body[data-theme="classic"] .brace, body[data-theme="classic"] .keyword, body[data-theme="classic"] .muted { display:none; }
+body[data-theme="classic"] .tag, body[data-theme="classic"] .comment, body[data-theme="classic"] .brace, body[data-theme="classic"] .keyword, body[data-theme="classic"] .code-keyword, body[data-theme="classic"] .code-prefix, body[data-theme="classic"] .code-suffix, body[data-theme="classic"] .muted { display:none; }
 body[data-theme="classic"] h1 { font-size:clamp(28px,3.5vw,42px); font-weight:650; }
 body[data-theme="classic"] h2 { font-weight:650; }
 body[data-theme="classic"] .identity-grid div { grid-template-columns:120px minmax(0,1fr); }
@@ -28,4 +28,14 @@ body[data-theme="classic"] .entry, body[data-theme="classic"] .contribution-grid
 body[data-theme="classic"] .entry p, body[data-theme="classic"] .entry li, body[data-theme="classic"] .contribution-grid p, body[data-theme="classic"] .intro-copy { color:#46545a; }
 body[data-theme="classic"] .role { border-color:var(--line); }
 body[data-theme="classic"] .string { color:var(--ink); }
+body[data-theme="classic"] .code-label { color:var(--ink); font-family:inherit; font-size:15px; font-weight:650; }
+body[data-theme="classic"] .assignment { color:var(--muted); }
+body[data-theme="classic"] .assignment-context { color:var(--muted); }
+body[data-theme="code"] .code-name { font-size:0; }
+body[data-theme="code"] .code-name::before { content:attr(data-code-name); font-size:clamp(23px,3.2vw,38px); }
+body[data-theme="code"] .code-value::before, body[data-theme="code"] .code-value::after { color:var(--rose); }
+body[data-theme="code"] .code-value::before { content:'"'; }
+body[data-theme="code"] .code-value::after { content:'"'; }
+body[data-theme="code"] .assignment-context { color:var(--green); }
+body[data-theme="code"] .assignment-context::before { content:'// '; }
 @media (max-width:800px) { body[data-theme="classic"] .resume-source { grid-template-columns:1fr; } }
