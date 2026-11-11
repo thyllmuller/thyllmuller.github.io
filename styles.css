@@ -31,6 +31,8 @@ body[data-theme="classic"] .string { color:var(--ink); }
 body[data-theme="classic"] .code-label { color:var(--ink); font-family:inherit; font-size:15px; font-weight:650; }
 body[data-theme="classic"] .assignment { color:var(--muted); }
 body[data-theme="classic"] .assignment-context { color:var(--muted); }
+body[data-theme="classic"] .team-context { color:var(--muted); font-size:13px; }
+body[data-theme="code"] .team-context { color:var(--gold); font-size:13px; }
 body[data-theme="code"] .code-name { font-size:0; }
 body[data-theme="code"] .code-name::before { content:attr(data-code-name); font-size:clamp(23px,3.2vw,38px); }
 body[data-theme="code"] .code-value::before, body[data-theme="code"] .code-value::after { color:var(--rose); }
