@@ -61,6 +61,7 @@ body[data-theme="tldr"] .tldr-view { display:block; }
 .tldr-view { display:none; }
 .tldr-eyebrow { margin-bottom:10px; color:var(--teal); font-size:14px; font-weight:650; }
 .tldr-eyebrow span { margin-left:8px; color:var(--muted); font-weight:400; }
+.tldr-line-of-business { margin:-5px 0 4px; color:var(--muted); font-size:13px; }
 .tldr-team { margin:0 0 20px; color:var(--muted); font-size:13px; }
 .tldr-view h1 { margin:0; color:var(--ink); font-size:clamp(40px,7vw,68px); font-weight:700; letter-spacing:-.045em; }
 .tldr-summary { max-width:720px; margin:17px 0 40px; color:var(--tldr-copy); font-size:clamp(18px,2.3vw,23px); line-height:1.5; }
