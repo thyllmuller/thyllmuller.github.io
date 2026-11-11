@@ -15,10 +15,13 @@
 .identity-grid div { display:grid; grid-template-columns:120px minmax(0,1fr); gap:8px; }
 .identity-grid dt { color:var(--blue); }
 .identity-grid dd { margin:0; color:var(--rose); }
+.heading-classic { display:none; }
 body[data-theme="classic"] { color-scheme:light; --ink:#263238; --muted:#66747b; --paper:#fff; --paper-deep:#f4f7f8; --line:#dce4e7; --green:#36765a; --teal:#176b75; --blue:#426d91; --rose:#8a5265; --gold:#826219; font-family:Inter,"Segoe UI",Arial,sans-serif; }
 body[data-theme="classic"] .topbar { background:rgba(255,255,255,.95); }
 body[data-theme="classic"] .wordmark-code { display:none; }
 body[data-theme="classic"] .wordmark-classic { display:inline; }
+body[data-theme="classic"] .heading-code { display:none; }
+body[data-theme="classic"] .heading-classic { display:inline; }
 body[data-theme="classic"] .resume-source { max-width:1080px; grid-template-columns:220px minmax(0,1fr); }
 body[data-theme="classic"] .intro h1 { margin-left:25px; }
 body[data-theme="classic"] .profile-photo { border-radius:50%; border-color:var(--line); filter:none; }
