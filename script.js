@@ -3,8 +3,10 @@ const navLinks = document.querySelectorAll('.site-nav a');
 
 const themeButtons = document.querySelectorAll('[data-theme-choice]');
 const paletteButtons = document.querySelectorAll('[data-palette-choice]');
+const tldrModeButtons = document.querySelectorAll('[data-tldr-mode-choice]');
 const savedTheme = localStorage.getItem('cv-theme');
 const savedPalette = localStorage.getItem('cv-palette');
+const savedTldrMode = localStorage.getItem('tldr-color-mode');
 const availableThemes = new Set([...themeButtons].map((button) => button.dataset.themeChoice));
 let currentTheme = 'code';
 
@@ -25,13 +27,25 @@ const setPalette = (palette) => {
   localStorage.setItem('cv-palette', palette);
 };
 
+const setTldrMode = (mode) => {
+  document.body.dataset.tldrMode = mode;
+  tldrModeButtons.forEach((button) => {
+    button.setAttribute('aria-pressed', String(button.dataset.tldrModeChoice === mode));
+  });
+  localStorage.setItem('tldr-color-mode', mode);
+};
+
 setTheme(availableThemes.has(savedTheme) ? savedTheme : 'code');
 setPalette([...paletteButtons].some((button) => button.dataset.paletteChoice === savedPalette) ? savedPalette : 'slate');
+setTldrMode(savedTldrMode === 'dark' ? 'dark' : 'light');
 themeButtons.forEach((button) => {
   button.addEventListener('click', () => setTheme(button.dataset.themeChoice));
 });
 paletteButtons.forEach((button) => {
   button.addEventListener('click', () => setPalette(button.dataset.paletteChoice));
+});
+tldrModeButtons.forEach((button) => {
+  button.addEventListener('click', () => setTldrMode(button.dataset.tldrModeChoice));
 });
 
 const observer = new IntersectionObserver(
